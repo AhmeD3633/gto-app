@@ -27,7 +27,14 @@ const Dropdown = () => {
       {isOpen && (
         <ul className={style.dropdownMenu}>
           {["GBP", "USD", "AED", "EGP"].map((currency) => (
-            <li key={currency} onClick={() => handleSelect(currency)}>
+            <li
+              key={currency}
+              onClick={() => handleSelect(currency)}
+              style={{
+                cursor: "pointer",
+                backgroundColor: currency === selected ? "#d4a742" : "",
+              }}
+            >
               {currency}
             </li>
           ))}
