@@ -15,7 +15,7 @@ const page = () => {
       {/* first section */}
       <div className={style.first}>
         <ul className={style.accountOperations}>
-          <li>
+          <li style={{color: "black"}}>
             <Dropdown />
           </li>
           <li>
