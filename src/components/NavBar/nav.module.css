@@ -20,13 +20,13 @@
 
 .accountOperations {
   display: flex;
-  flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  width: 20vw;
+  width: 20%;
   list-style: none;
-  font-size: 0.8rem;
+  font-size: clamp(0.4rem, 0.8rem, 0.8rem);
   font-weight: 400;
+  padding-left: 0px;
 }
 
 .accountOperations li {
@@ -35,6 +35,7 @@
   justify-content: space-between;
   align-items: center;
   transition: 200ms ease-in-out;
+  color: #222222;
 }
 
 .accountOperations li:hover {
@@ -69,14 +70,16 @@
 .leftSide {
   /* background-color: blue; */
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .leftSide > div:nth-child(2) ul {
   display: flex;
   color: #d4a742;
   list-style: none;
-  gap: 1rem;
-  font-size: 0.9rem;
+  gap: 1.3rem;
+  font-size: clamp(0.6rem, 0.8rem, 0.8rem);
 }
 
 .leftSide > div:nth-child(2) ul li a {
@@ -108,8 +111,145 @@
 
 .leftSide > div:nth-child(2) {
   display: flex;
-  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   padding: 10px 0px;
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+  background-color: #d4a742;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px rgba(212, 167, 66, 0.2);
+}
+
+.mobileview {
+  position: absolute;
+  background-color: #222222;
+  color: #d4a742;
+  height: 100vh;
+  width: 70vw;
+  top: 0;
+  left: -100%;
+  transition: left 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.mobileview.open {
+  left: 0;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobileview div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 20px 20px;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+
+.mobileview ul {
+  list-style: none;
+}
+
+.mobileview ul li a {
+  text-decoration: none;
+  color: #d4a742;
+}
+
+.active{
+  background-color: #d4a742;
+  color: #222222;
+  border-radius: 5px;
+  padding: 5px 10px;
+  
+}
+
+/* RESPONSIVE LAYOUT */
+
+@media screen and (max-width: 768px) {
+  .nav {
+    height: auto;
+    flex-direction: column;
+  }
+
+  .first {
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    padding-right: 0px;
+  }
+
+  .second {
+    align-items: center;
+    height: auto;
+  }
+
+  .accountOperations {
+    width: 100%;
+    gap: 1rem;
+    justify-content: space-evenly;
+    font-size: 0.6rem;
+  }
+
+  .leftSide > div:nth-child(2) {
+    display: none;
+  }
+
+  .rightSide {
+    display: none;
+  }
+
+  .burger {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .leftSide > div:nth-child(2) {
+    display: flex; /* Show navigation links again on tablets and larger */
+  }
+
+  .rightSide {
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  /* Adjust large screen styles */
+}
+
+@media screen and (min-width: 1440px) {
+  .leftSide div {
+    display: flex;
+  }
+
+  .rightSide {
+    display: flex;
+  }
 }

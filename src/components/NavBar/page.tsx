@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import style from "./nav.module.css";
 import wallet from "../../../public/assets/Images/wallet-logo.svg";
 import login from "../../../public/assets/Images/login-icon.svg";
@@ -8,14 +9,44 @@ import emerald from "../../../public/assets/Images/emerlad.svg";
 import etisalat from "../../../public/assets/Images/etisalat-logo.png";
 import gto from "../../../public/assets/Images/gto-logo.png";
 import Dropdown from "./Dropdown";
+import burgerIcon from "../../../public/assets/Images/navbar-menu.svg";
+import Link from "next/link";
 
-const page = () => {
+const Nav = () => {
+  const links = [
+    { title: "Discounted Products", href: "/discounted" },
+    { title: "Luxury Products", href: "/luxury" },
+    { title: "Membership Types", href: "/membership" },
+    { title: "How to Book", href: "/booking" },
+    { title: "How to Join", href: "/how-to-join" },
+  ];
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState("");
+
+  const handleLinkClick = (link: string) => {
+    setActiveLink(link);
+    setIsOpen(false);
+  };
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <nav className={style.nav}>
-      {/* first section */}
+      {/* Overlay */}
+      {isOpen && (
+        <div
+          className={`${style.overlay} ${isOpen ? style.show : ""}`}
+          onClick={() => setIsOpen(false)}
+        ></div>
+      )}
+
+      {/* First Section */}
       <div className={style.first}>
         <ul className={style.accountOperations}>
-          <li style={{color: "black"}}>
+          <li>
             <Dropdown />
           </li>
           <li>
@@ -27,44 +58,60 @@ const page = () => {
             Login
           </li>
           <li>
-            <Image src={join} alt="join" /> Join Now
+            <Image src={join} alt="join" />
+            Join Now
           </li>
         </ul>
       </div>
 
-      {/* second section */}
+      {/* Second Section */}
       <div className={style.second}>
-        {/* left side */}
+        {/* Left Side */}
         <div className={style.leftSide}>
-          {/* LOGO_IMAGE */}
+          {/* Logo */}
           <div>
-            <Image src={gto} alt="gto" />
+            <Link href="/">
+              <Image src={gto} alt="gto" layout="responsive" />
+            </Link>
           </div>
 
-          {/* NAVIGATION_LINKS */}
+          {/* Desktop Navigation Links */}
           <div>
-            <ul>
-              <li>
-                <a href="#">Discounted Products</a>
-              </li>
-              <li>
-                <a href="#">Luxury Products</a>
-              </li>
-              <li>
-                <a href="#">Membership Types</a>
-              </li>
-              <li>
-                <a href="#">How to Book</a>
-              </li>
-              <li>
-                <a href="#">How to Join</a>
-              </li>
-            </ul>
+            {links.map((link, i) => (
+              <ul key={i} className={style.links}>
+                <li>
+                  <a href={link.href}>{link.title}</a>
+                </li>
+              </ul>
+            ))}
           </div>
         </div>
 
-        {/* right side */}
+        {/* Burger Icon */}
+        <button className={style.burger} onClick={toggleMenu}>
+          <Image src={burgerIcon} alt="burgerIcon" />
+        </button>
+
+        {/* Right Side */}
         <div className={style.rightSide}>
+          <Image src={emerald} alt="emerald" />
+          <Image src={etisalat} alt="etisalat" />
+        </div>
+      </div>
+
+      {/* Mobile View */}
+      <div className={`${style.mobileview} ${isOpen ? style.open : ""}`}>
+        {links.map((link, i) => (
+          <ul key={i} className={style.links}>
+            <li
+              className={activeLink === link.href ? style.active : ""}
+              onClick={() => handleLinkClick(link.href)}
+            >
+              <a href={link.href}>{link.title}</a>
+            </li>
+          </ul>
+        ))}
+        <div>
           <Image src={emerald} alt="emerald" />
           <Image src={etisalat} alt="etisalat" />
         </div>
@@ -73,4 +120,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Nav;

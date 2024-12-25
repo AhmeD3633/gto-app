@@ -46,3 +46,14 @@
 .dropdownItem:hover {
   background-color: #f0f0f0;
 }
+
+@media screen and (max-width: 768px) {
+ .dropdownButton{
+    font-size: 0.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+
+ }   
+}
