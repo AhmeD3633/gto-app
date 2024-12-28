@@ -9,7 +9,7 @@ import emerald from "../../../public/assets/Images/emerlad.svg";
 import etisalat from "../../../public/assets/Images/etisalat-logo.png";
 import gto from "../../../public/assets/Images/gto-logo.png";
 import Dropdown from "./Dropdown";
-import burgerIcon from "../../../public/assets/Images/navbar-menu.svg";
+// import burgerIcon from "../../../public/assets/Images/navbar-menu.svg";
 import Link from "next/link";
 
 const Nav = () => {
