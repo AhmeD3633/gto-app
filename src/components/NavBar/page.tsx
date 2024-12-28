@@ -88,8 +88,10 @@ const Nav = () => {
         </div>
 
         {/* Burger Icon */}
-        <button className={style.burger} onClick={toggleMenu}>
-          <Image src={burgerIcon} alt="burgerIcon" />
+        <button className={`${style.burger} ${isOpen ? style.open : ""}`} onClick={toggleMenu}>
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
 
         {/* Right Side */}

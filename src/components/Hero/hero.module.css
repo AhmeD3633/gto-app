@@ -1,0 +1,48 @@
+.container {
+  width: 100%;
+  height: 70vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container:nth-child(1) {
+  object-fit: contain;
+  width: 100%;
+}
+
+.textContainer {
+  /* background-color: aqua; */
+  position: absolute;
+  top: 55%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  color: aliceblue;
+}
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+.title {
+  color: aliceblue;
+  text-shadow: 4px 4px 10px black;
+  font-size: 2.2rem;
+  animation: slideIn 1000ms ease-in-out;
+}
+
+.description {
+  font-size: 1.5rem;
+  text-shadow: 4px 4px 10px black;
+  animation: slideIn 800ms ease-in-out;
+}
+
+
