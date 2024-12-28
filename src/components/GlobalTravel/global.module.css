@@ -112,4 +112,9 @@
         background-size: cover;
     }
 }
+@media screen and (min-width: 1440px) {
+  .container{
+      height: 50vh;
+  }
+}
 
