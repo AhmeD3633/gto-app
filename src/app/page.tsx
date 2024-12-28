@@ -4,6 +4,7 @@ import GtoNumbers from "../components/GtoNumbers/page";
 import MembershipBenefits from "../components/MembershipBenefits/page";
 import Coverage from "../components/Coverage/page";
 import Services from "../components/Services/page";
+import Assistant from "../components/Assistant/page";
 export default function Page() {
   return (
     <div className="App">
@@ -13,6 +14,7 @@ export default function Page() {
       <MembershipBenefits />
       <Coverage />
       <Services />
+      <Assistant/>
     </div>
   );
 }
