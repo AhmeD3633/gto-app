@@ -1,0 +1,61 @@
+.container {
+  width: 100vw;
+  height: 67vh;
+  display: flex;
+  background-color: #1e1e1e;
+  border-bottom: 4px solid #d4a742;
+}
+.left {
+  flex: 0.25;
+  display: flex;
+  justify-content: start;
+  overflow-y: hidden;
+}
+
+.right {
+  flex: 0.75;
+  display: flex;
+  justify-content: center;
+}
+
+.right img {
+  object-fit: contain;
+  width: 100%;
+  height: inherit;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    height: 40vh;
+  }
+  .left {
+    display: none;
+  }
+  .right {
+    flex: 1;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    height: 50vh;
+  }
+
+  .left {
+    flex: 0.5;
+  }
+
+  .left img {
+    object-fit: cover;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .left {
+    flex: 0.3;
+  }
+
+  .left img {
+    object-fit: cover;
+  }
+}
