@@ -9,7 +9,6 @@ import emerald from "../../../public/assets/Images/emerlad.svg";
 import etisalat from "../../../public/assets/Images/etisalat-logo.png";
 import gto from "../../../public/assets/Images/gto-logo.png";
 import Dropdown from "./Dropdown";
-// import burgerIcon from "../../../public/assets/Images/navbar-menu.svg";
 import Link from "next/link";
 
 const Nav = () => {
@@ -88,7 +87,10 @@ const Nav = () => {
         </div>
 
         {/* Burger Icon */}
-        <button className={`${style.burger} ${isOpen ? style.open : ""}`} onClick={toggleMenu}>
+        <button
+          className={`${style.burger} ${isOpen ? style.open : ""}`}
+          onClick={toggleMenu}
+        >
           <span></span>
           <span></span>
           <span></span>
