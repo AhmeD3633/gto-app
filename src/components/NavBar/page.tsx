@@ -10,9 +10,11 @@ import etisalat from "../../../public/assets/Images/etisalat-logo.png";
 import gto from "../../../public/assets/Images/gto-logo.png";
 import Dropdown from "./Dropdown";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Nav = () => {
   const links = [
+    { title: "Home", href: "/" },
     { title: "Discounted Products", href: "/discounted" },
     { title: "Luxury Products", href: "/luxury" },
     { title: "Membership Types", href: "/membership" },
@@ -22,6 +24,8 @@ const Nav = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("");
+
+  const pathname = usePathname();
 
   const handleLinkClick = (link: string) => {
     setActiveLink(link);
@@ -105,16 +109,19 @@ const Nav = () => {
 
       {/* Mobile View */}
       <div className={`${style.mobileview} ${isOpen ? style.open : ""}`}>
-        {links.map((link, i) => (
-          <ul key={i} className={style.links}>
-            <li
-              className={activeLink === link.href ? style.active : ""}
-              onClick={() => handleLinkClick(link.href)}
-            >
-              <Link href={link.href}>{link.title}</Link>
+        <ul className={style.links}>
+          {links.map((link, i) => (
+            <li key={i}>
+              <Link
+                href={link.href}
+                className={pathname === link.href ? style.active : ""}
+                onClick={() => handleLinkClick(link.href)}
+              >
+                {link.title}
+              </Link>
             </li>
-          </ul>
-        ))}
+          ))}
+        </ul>
         <div>
           <Image src={emerald} alt="emerald" />
           <Image src={etisalat} alt="etisalat" />
