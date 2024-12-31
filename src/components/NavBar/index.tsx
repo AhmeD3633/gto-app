@@ -72,9 +72,14 @@ const Nav = () => {
         {/* Left Side */}
         <div className={style.leftSide}>
           {/* Logo */}
-          <div>
+          <div className={style.logoContainer}>
             <Link href="/">
-              <Image src={gto} alt="gto" layout="responsive" />
+              <Image
+                src={gto}
+                alt="gto"
+                layout="responsive"
+                className={style.logo}
+              />
             </Link>
           </div>
 
