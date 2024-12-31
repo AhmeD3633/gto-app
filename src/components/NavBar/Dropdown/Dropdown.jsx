@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import style from "./dropdown.module.css";
-import arrowDown from "../../../public/assets/Images/arrow-down.svg";
+import arrowDown from "../../../../public/assets/Images/arrow-down.svg";
 import Image from "next/image";
 
 const Dropdown = () => {

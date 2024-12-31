@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./coverage.module.css";
+import style from "./style.module.css";
 import coverage from "../../../public/assets/Images/our-coverage.svg";
 import Image from "next/image";
 const page = () => {

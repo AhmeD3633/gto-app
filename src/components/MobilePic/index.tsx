@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./mobile.module.css";
+import style from "./style.module.css";
 import gtoMobile from "../../../public/assets/Images/gto-mobile.svg";
 import Image from "next/image";
 import appstore from "../../../public/assets/Images/download-app-store.svg";

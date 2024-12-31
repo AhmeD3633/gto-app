@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./membership.module.css";
+import style from "./style.module.css";
 import suite from "../../../public/assets/Images/suite.svg";
 import benefits from "../../../public/assets/Images/test.svg";
 import Image from "next/image";

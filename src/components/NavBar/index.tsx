@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import style from "./nav.module.css";
+import style from "./style.module.css";
 import wallet from "../../../public/assets/Images/wallet-logo.svg";
 import login from "../../../public/assets/Images/login-icon.svg";
 import join from "../../../public/assets/Images/join-now-icon.svg";
@@ -8,7 +8,7 @@ import Image from "next/image";
 import emerald from "../../../public/assets/Images/emerlad.svg";
 import etisalat from "../../../public/assets/Images/etisalat-logo.png";
 import gto from "../../../public/assets/Images/gto-logo.png";
-import Dropdown from "./Dropdown";
+import Dropdown from "./Dropdown/Dropdown";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 

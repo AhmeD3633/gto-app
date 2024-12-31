@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./services.module.css";
+import style from "./style.module.css";
 import ServicesData from "./ServicesData";
 import Image from "next/image";
 const page = () => {

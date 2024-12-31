@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./global.module.css";
+import style from "./style.module.css";
 const Global = () => {
   return (
     <div className={style.container}>

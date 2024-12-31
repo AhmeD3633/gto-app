@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./assistant.module.css";
+import style from "./style.module.css";
 import assistant from "../../../public/assets/Images/personal-travel-img-one.svg";
 import Image from "next/image";
 

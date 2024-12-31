@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./footer.module.css";
+import style from "./style.module.css";
 import Image from "next/image";
 import gto from "../../../public/assets/Images/gto-logo.png";
 import wallet from "../../../public/assets/Images/my-wallet-gold.svg";

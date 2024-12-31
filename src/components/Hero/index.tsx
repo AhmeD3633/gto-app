@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import style from "./hero.module.css";
+import style from "./style.module.css";
 import swiperData from "./SwiperData";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";

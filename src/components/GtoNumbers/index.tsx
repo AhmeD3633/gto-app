@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./gto.module.css";
+import style from "./style.module.css";
 
 const page = () => {
   return (
