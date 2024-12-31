@@ -79,7 +79,7 @@ const Nav = () => {
             {links.map((link, i) => (
               <ul key={i} className={style.links}>
                 <li>
-                  <a href={link.href}>{link.title}</a>
+                  <Link href={link.href}>{link.title}</Link>
                 </li>
               </ul>
             ))}
@@ -111,7 +111,7 @@ const Nav = () => {
               className={activeLink === link.href ? style.active : ""}
               onClick={() => handleLinkClick(link.href)}
             >
-              <a href={link.href}>{link.title}</a>
+              <Link href={link.href}>{link.title}</Link>
             </li>
           </ul>
         ))}

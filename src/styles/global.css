@@ -39,7 +39,6 @@ a:hover {
   align-items: center;
   display: flex;
   flex-direction: column;
-  /* background-color: aqua; */
   gap: 20px;
 }
 
@@ -61,26 +60,9 @@ a:hover {
   opacity: 1;
   transform: scale(1.2);
 }
-.swiper-button-next,
-.swiper-button-prev {
-  color: aliceblue !important;
-  border: 1px solid aliceblue !important;
-  border-radius: 4px !important;
-  padding: 27px !important;
-}
 
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-  background-color: #d4a742 !important;
-  border: 1px solid red !important;
-  transition: all 0.3s ease-in-out;
-}
-
-.swiper-button-prev {
-  top: 36% !important;
-  left: 92% !important;
-}
-
-.swiper-button-next {
-  left: 92% !important;
+@media screen and (max-width: 768px) {
+  .swiper-pagination {
+    display: none;
+  }
 }

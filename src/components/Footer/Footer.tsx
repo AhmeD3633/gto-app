@@ -8,6 +8,7 @@ import join from "../../../public/assets/Images/join-now-gold.svg";
 import footerLogo from "../../../public/assets/Images/footerLogo.svg";
 import visa from "../../../public/assets/Images/visa-mastercard.svg";
 import { title } from "process";
+import Link from "next/link";
 const Footer = () => {
   const links = [
     { title: "Discounted Products", href: "/discounted" },
@@ -47,7 +48,7 @@ const Footer = () => {
             <ul>
               {links.map((link) => (
                 <li key={link.title}>
-                  <a href={link.href}>{link.title}</a>
+                  <Link href={link.href}>{link.title}</Link>
                 </li>
               ))}
             </ul>
@@ -61,7 +62,7 @@ const Footer = () => {
               {subLinks.map((link) => (
                 <li key={link.title}>
                   <Image src={link.icon} alt={link.title} />
-                  <a href={link.href}>{link.title}</a>
+                  <Link href={link.href}>{link.title}</Link>
                 </li>
               ))}
             </ul>
@@ -92,7 +93,7 @@ const Footer = () => {
             {info.map((info, i) => (
               <li key={i}>
                 {" "}
-                <a href={info.href}>{info.title}</a>
+                <Link href={info.href}>{info.title}</Link>
               </li>
             ))}
           </ul>

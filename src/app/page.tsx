@@ -1,4 +1,4 @@
-import Hero from "../components/Hero/page";
+import Hero from "../components/Hero/index";
 import GlobalTravel from "../components/GlobalTravel/page";
 import GtoNumbers from "../components/GtoNumbers/page";
 import MembershipBenefits from "../components/MembershipBenefits/page";
@@ -15,7 +15,7 @@ export default function Page() {
       <MembershipBenefits />
       <Coverage />
       <Services />
-      <Assistant/>
+      <Assistant />
       <MobilePic />
     </div>
   );
