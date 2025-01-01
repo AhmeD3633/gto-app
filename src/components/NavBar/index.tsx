@@ -19,7 +19,7 @@ const Nav = () => {
     { title: "Luxury Products", href: "/luxury" },
     { title: "Membership Types", href: "/membership" },
     { title: "How to Book", href: "/booking" },
-    { title: "How to Join", href: "/how-to-join" },
+    { title: "How to Join", href: "/join" },
   ];
 
   const [isOpen, setIsOpen] = useState(false);
