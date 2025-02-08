@@ -1,0 +1,135 @@
+.loginModalContainer {
+  position: absolute;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #d4a742;
+}
+
+.loginModal {
+  background-color: #222222;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  width: 476px;
+  height: auto;
+  position: relative;
+}
+
+.loginModalContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.buttonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+
+.close {
+  border: none;
+  outline: none;
+  background-color: #d4a742;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.loginModalContent h2 {
+  margin-bottom: 1rem;
+}
+
+.loginForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.loginForm input {
+  width: 100%;
+  background-color: #d9d9d9;
+  padding: 18px 10px;
+  border: none;
+  border-radius: 10px;
+}
+
+.Button {
+  width: 100%;
+  background-color: #d4a742;
+  padding: 18px 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.error {
+  color: red;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.modalContentOtp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  position: absolute;
+  background-color: #222222;
+  border-radius: 10px;
+}
+
+.modalContentOtp p {
+  color: snow;
+  font-size: 0.6rem;
+  letter-spacing: 0.1rem;
+}
+
+.otpForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.otpInputsContainer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.otpInputsContainer input {
+  width: 50px;
+  height: 50px;
+  background-color: #222222;
+  border: gray 2px solid;
+  border-radius: 8px;
+  color: gray;
+  font-size: 1.5rem;
+  text-align: center;
+  outline: none;
+}

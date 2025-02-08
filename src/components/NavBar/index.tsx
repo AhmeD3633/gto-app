@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import style from "./style.module.css";
-import wallet from "../../../public/assets/Images/wallet-logo.svg";
+import wallet from "../../../public/assets/Images/wallet-logo.7d8917e9.svg";
 import login from "../../../public/assets/Images/login-icon.svg";
 import join from "../../../public/assets/Images/join-now-icon.svg";
 import Image from "next/image";
@@ -11,6 +11,7 @@ import gto from "../../../public/assets/Images/gto-logo.png";
 import Dropdown from "./Dropdown/Dropdown";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import LoginModal from "./LoginModal";
 
 const Nav = () => {
   const links = [
@@ -24,12 +25,17 @@ const Nav = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("");
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
   const pathname = usePathname();
 
   const handleLinkClick = (link: string) => {
     setActiveLink(link);
     setIsOpen(false);
+  };
+
+  const handleLoginModal = () => {
+    setIsLoginModalOpen(!isLoginModalOpen);
   };
 
   const toggleMenu = () => {
@@ -45,7 +51,6 @@ const Nav = () => {
           onClick={() => setIsOpen(false)}
         ></div>
       )}
-
       {/* First Section */}
       <div className={style.first}>
         <ul className={style.accountOperations}>
@@ -53,10 +58,10 @@ const Nav = () => {
             <Dropdown />
           </li>
           <li>
-            <Image src={wallet} alt="wallet" />
+            <Image src={wallet} alt="wallet" width={24} height={24} />
             My Wallet
           </li>
-          <li>
+          <li role="button" onClick={handleLoginModal}>
             <Image src={login} alt="login" />
             Login
           </li>
@@ -66,7 +71,6 @@ const Nav = () => {
           </li>
         </ul>
       </div>
-
       {/* Second Section */}
       <div className={style.second}>
         {/* Left Side */}
@@ -111,7 +115,6 @@ const Nav = () => {
           <Image src={etisalat} alt="etisalat" />
         </div>
       </div>
-
       {/* Mobile View */}
       <div className={`${style.mobileview} ${isOpen ? style.open : ""}`}>
         <ul className={style.links}>
@@ -132,6 +135,14 @@ const Nav = () => {
           <Image src={etisalat} alt="etisalat" />
         </div>
       </div>
+      {/* Login Modal */}
+      {isLoginModalOpen && (
+        <LoginModal
+          handleLoginModal={handleLoginModal}
+          isLoginModalOpen={isLoginModalOpen}
+          setIsLoginModalOpen={setIsLoginModalOpen}
+        />
+      )}
     </nav>
   );
 };

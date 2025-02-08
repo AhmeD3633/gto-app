@@ -1,0 +1,24 @@
+.container {
+  width: 100%;
+  height: auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 2rem;
+}
+
+.upperSection {
+  flex: 1;
+  display: flex;
+}
+
+.lowerSection {
+  flex: 1;
+  background-color: black;
+  width: 90%;
+  height: auto;
+  box-shadow: 1px 1px 15px #d4a742;
+  border-radius: 10px;
+}

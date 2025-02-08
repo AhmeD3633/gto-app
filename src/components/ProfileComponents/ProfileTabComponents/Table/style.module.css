@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tableWrapper {
+  border-radius: 10px;
+  background-color: black;
+  padding: 1rem 0.5rem;
+  width: 100%;
+}
+
+.table {
+  width: 100%;
+  color: white;
+  border-collapse: collapse;
+}
+
+.row {
+  border-bottom: 1px solid gray;
+  display: flex;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.cellValue {
+  text-align: left;
+  flex: 2 !important;
+}
+
+.cellLabel,
+.cellValue,
+.cellIcon {
+  padding: 1rem 2rem;
+  flex: 0.25;
+}
+
+.cellLabel {
+  font-weight: 400;
+}
+
+.cellIcon {
+  text-align: right;
+}
+
+.editIcon {
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.editIcon:hover {
+  transform: scale(1.05);
+}

@@ -1,0 +1,63 @@
+.profileSideBar {
+  /* background-color: bisque; */
+  width: 13vw;
+  height: 80vh;
+  border-right: 1px solid gray;
+  padding: 2rem 1rem;
+}
+
+.profileSideBarList {
+  /* background-color: aqua; */
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style: none;
+}
+
+.profileSideBarList li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border: 1px solid gray;
+  border-radius: 0.5rem;
+}
+
+.profileSideBarList li a {
+  text-decoration: none;
+  color: #f0f8ff;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.3rem;
+  gap: 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+}
+
+.profileSideBarList li a img {
+  color: aliceblue;
+  transition: all 0.2s;
+}
+
+.profileSideBarList li a:hover img {
+  filter: invert(0%) brightness(0) saturate(100%);
+}
+
+.profileSideBarList li a:hover {
+  background-color: #d4a742;
+  color: black !important;
+}
+
+.active {
+  background-color: #d4a742;
+  color: black !important;
+  
+}
+
+.active img {
+  filter: invert(0%) brightness(0) saturate(100%);
+}
