@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import style from "./style.module.css";
 import { useState } from "react";
+import ErrorMessage from "../ErrorMessage";
 interface LoginModalProps {
   isLoginModalOpen: boolean;
   setIsLoginModalOpen: (value: boolean) => void;
@@ -15,6 +16,16 @@ const LoginModal = ({
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [isEmailValid, setIsEmailValid] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false);
+
+  useEffect(() => {
+    if (errorMessage) {
+      const timer = setTimeout(() => {
+        setErrorMessage(false);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [errorMessage]);
 
   const handleModalClose = () => {
     setIsLoginModalOpen(false);
@@ -26,6 +37,7 @@ const LoginModal = ({
 
     if (!email.trim()) {
       setError("Email is required");
+      setErrorMessage(true);
       return;
     }
 
@@ -45,13 +57,14 @@ const LoginModal = ({
 
       if (!response.ok) {
         setError(data.message || "Failed to login");
+        setErrorMessage(true);
       } else {
         console.log("Success:", data);
-        // setIsLoginModalOpen(false);
         setIsEmailValid(true);
       }
     } catch (error) {
       setError("Network error, please try again.");
+      setErrorMessage(true);
     }
 
     setError("");
@@ -100,6 +113,7 @@ const LoginModal = ({
           </div>
         )}
       </div>
+      {errorMessage && <ErrorMessage setErrorMessage={setErrorMessage} />}
     </div>
   );
 };
