@@ -42,8 +42,13 @@
   color: aliceblue;
 }
 
+.accountOperations li:hover img {
+  filter: invert(1);
+}
+
 .accountOperations li img {
   margin-right: 5px;
+  transition: all 0.2s ease-in-out ;
 }
 
 .second {
@@ -56,8 +61,8 @@
 }
 
 .logoContainer {
-  min-width: 100px; 
-  min-height: 50px; 
+  min-width: 100px;
+  min-height: 50px;
 }
 
 .logo {
