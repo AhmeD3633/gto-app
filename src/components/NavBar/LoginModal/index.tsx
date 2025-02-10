@@ -9,14 +9,20 @@ interface LoginModalProps {
   handleLoginModal: () => void;
 }
 
+enum ModalState {
+  Email = "Email",
+  Otp = "Otp",
+  Loading = "Loading",
+}
+
 const LoginModal = ({
   isLoginModalOpen,
   setIsLoginModalOpen,
   handleLoginModal,
 }: LoginModalProps) => {
+  const [modalState, setModalState] = useState<ModalState>(ModalState.Email);
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
-  const [isEmailValid, setIsEmailValid] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);
 
   useEffect(() => {
@@ -35,6 +41,7 @@ const LoginModal = ({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setModalState(ModalState.Otp);
 
     if (!email.trim()) {
       setError("Email is required");
@@ -61,7 +68,6 @@ const LoginModal = ({
         setErrorMessage(true);
       } else {
         console.log("Success:", data);
-        setIsEmailValid(true);
       }
     } catch (error) {
       setError("Network error, please try again.");
@@ -74,26 +80,36 @@ const LoginModal = ({
   return (
     <div className={style.loginModalContainer}>
       <div className={style.loginModal}>
-        <div className={style.loginModalContent}>
-          <div className={style.buttonContainer}>
-            <button className={style.close} onClick={handleModalClose}>
-              &times;
-            </button>
+        {modalState === ModalState.Email && (
+          <div className={style.loginModalContent}>
+            <div className={style.buttonContainer}>
+              <button className={style.close} onClick={handleModalClose}>
+                &times;
+              </button>
+            </div>
+            <h2>Log in</h2>
+            <form className={style.loginForm} onSubmit={handleSubmit}>
+              <input
+                type="text"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              {error && <p className={style.error}>{error}</p>}
+              <button className={style.Button}>Login</button>
+            </form>
           </div>
-          <h2>Log in</h2>
-          <form className={style.loginForm} onSubmit={handleSubmit}>
-            <input
-              type="text"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            {error && <p className={style.error}>{error}</p>}
-            <button className={style.Button}>Login</button>
-          </form>
-        </div>
+        )}
 
-        {isEmailValid && <OtpModal handleModalClose={handleModalClose} />}
+        {modalState === ModalState.Otp && (
+          <OtpModal
+            handleModalClose={handleModalClose}
+            email={email}
+            setErrorMessage={setErrorMessage}
+            setError={setError}
+            handleLoginModal={handleLoginModal}
+          />
+        )}
       </div>
       {errorMessage && <ErrorMessage setErrorMessage={setErrorMessage} />}
     </div>
