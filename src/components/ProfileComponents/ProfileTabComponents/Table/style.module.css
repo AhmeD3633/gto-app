@@ -1,4 +1,10 @@
 .container {
+  flex: 1;
+  background-color: black;
+  width: 90%;
+  height: auto;
+  box-shadow: 1px 1px 15px #d4a742;
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,6 +15,7 @@
   background-color: black;
   padding: 1rem 0.5rem;
   width: 100%;
+  overflow-x: auto;
 }
 
 .table {
@@ -20,15 +27,12 @@
 .row {
   border-bottom: 1px solid gray;
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .row:last-child {
   border-bottom: none;
-}
-
-.cellValue {
-  text-align: left;
-  flex: 2 !important;
 }
 
 .cellLabel,
@@ -36,6 +40,14 @@
 .cellIcon {
   padding: 1rem 2rem;
   flex: 0.25;
+  min-width: 100px;
+}
+
+.cellValue {
+  text-align: left;
+  flex: 4;
+  word-wrap: break-word;
+  white-space: normal;
 }
 
 .cellLabel {
@@ -53,4 +65,50 @@
 
 .editIcon:hover {
   transform: scale(1.05);
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 0.5rem;
+  }
+
+  .tableWrapper {
+    padding: 0.5rem;
+  }
+
+  .row {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .cellLabel,
+  .cellValue,
+  .cellIcon {
+    padding: 0.5rem 1rem;
+    font-size: 14px;
+  }
+
+  .cellIcon {
+    text-align: center;
+  }
+
+  .editIcon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+  .cellLabel,
+  .cellValue {
+    width: 100%;
+    text-align: left;
+  }
+
+  .cellIcon {
+    width: 100%;
+    text-align: center;
+    padding-top: 0.5rem;
+  }
 }

@@ -12,9 +12,8 @@ const ProfileTabComponents = () => {
         <Image src={Card} alt="card" width={350} height={200}></Image>
       </div>
       {/* LOWER_SECTION */}
-      <div className={style.lowerSection}>
-        <Table />
-      </div>
+
+      <Table />
     </div>
   );
 };

@@ -7,6 +7,7 @@
   justify-content: center;
   align-items: start;
   gap: 2rem;
+  overflow: hidden;
 }
 
 .upperSection {
@@ -14,11 +15,14 @@
   display: flex;
 }
 
-.lowerSection {
-  flex: 1;
-  background-color: black;
-  width: 90%;
-  height: auto;
-  box-shadow: 1px 1px 15px #d4a742;
-  border-radius: 10px;
+.upperSection img {
+  object-fit: contain;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 0.25rem;
+  }
 }

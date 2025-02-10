@@ -26,6 +26,7 @@ const ProfileTable = () => {
                     alt="Edit"
                     width={25}
                     height={25}
+                    
                     className={styles.editIcon}
                   />
                 </td>
