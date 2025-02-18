@@ -6,6 +6,7 @@ import Coverage from "../components/Coverage";
 import Services from "../components/Services/index";
 import Assistant from "../components/Assistant";
 import MobilePic from "../components/MobilePic/index";
+import { Roboto } from "next/font/google";
 
 export default function Page() {
   return (

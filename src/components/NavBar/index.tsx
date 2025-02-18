@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from "react";
 import style from "./style.module.css";
 import wallet from "../../../public/assets/Images/wallet-logo.7d8917e9.svg";
@@ -13,7 +14,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import LoginModal from "./LoginModal";
 
+enum NavBarState {
+  joinNow = "joinNow",
+  logout = "logout",
+}
+
 const Nav = () => {
+  const [navContent, setNavContent] = useState<NavBarState>(
+    NavBarState.joinNow
+  );
   const links = [
     { title: "Home", href: "/" },
     { title: "Discounted Products", href: "/discounted" },
@@ -51,31 +60,53 @@ const Nav = () => {
           onClick={() => setIsOpen(false)}
         ></div>
       )}
-      {/* First Section */}
-      <div className={style.first}>
-        <ul className={style.accountOperations}>
-          <li>
-            <Dropdown />
-          </li>
-          <li>
-            <Image src={wallet} alt="wallet" width={24} height={24} />
-            My Wallet
-          </li>
-          <li role="button" onClick={handleLoginModal}>
-            <Image src={login} alt="login" />
-            Login
-          </li>
-          <li>
-            <Image src={join} alt="join" />
-            Join Now
-          </li>
-        </ul>
-      </div>
-      {/* Second Section */}
+
+      {/* MAIN NAV */}
+      {navContent === NavBarState.joinNow && (
+        <div className={style.first}>
+          <ul className={style.accountOperations}>
+            <li>
+              <Dropdown />
+            </li>
+            <li>
+              <Image src={wallet} alt="wallet" width={24} height={24} />
+              My Wallet
+            </li>
+            <li role="button" onClick={handleLoginModal}>
+              <Image src={login} alt="login" />
+              Login
+            </li>
+            <li>
+              <Image src={join} alt="join" />
+              Join Now
+            </li>
+          </ul>
+        </div>
+      )}
+
+      {navContent === NavBarState.logout && (
+        <div className={style.first}>
+          <ul className={style.accountOperations}>
+            <li>ahmedelsherbini</li>
+            <li>
+              <Image src={wallet} alt="wallet" width={24} height={24} />
+              My Wallet
+            </li>
+            <li role="button" onClick={handleLoginModal}>
+              <Image src={join} alt="join" />
+              Profile
+            </li>
+            <li>
+              <Image src={login} alt="login" />
+              Logout
+            </li>
+          </ul>
+        </div>
+      )}
+
+      {/* Secondary Navigation */}
       <div className={style.second}>
-        {/* Left Side */}
         <div className={style.leftSide}>
-          {/* Logo */}
           <div className={style.logoContainer}>
             <Link href="/">
               <Image
@@ -87,7 +118,6 @@ const Nav = () => {
             </Link>
           </div>
 
-          {/* Desktop Navigation Links */}
           <div>
             {links.map((link, i) => (
               <ul key={i} className={style.links}>
@@ -99,7 +129,6 @@ const Nav = () => {
           </div>
         </div>
 
-        {/* Burger Icon */}
         <button
           className={`${style.burger} ${isOpen ? style.open : ""}`}
           onClick={toggleMenu}
@@ -109,38 +138,18 @@ const Nav = () => {
           <span></span>
         </button>
 
-        {/* Right Side */}
         <div className={style.rightSide}>
           <Image src={emerald} alt="emerald" />
           <Image src={etisalat} alt="etisalat" />
         </div>
       </div>
-      {/* Mobile View */}
-      <div className={`${style.mobileview} ${isOpen ? style.open : ""}`}>
-        <ul className={style.links}>
-          {links.map((link, i) => (
-            <li key={i}>
-              <Link
-                href={link.href}
-                className={pathname === link.href ? style.active : ""}
-                onClick={() => handleLinkClick(link.href)}
-              >
-                {link.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <div>
-          <Image src={emerald} alt="emerald" />
-          <Image src={etisalat} alt="etisalat" />
-        </div>
-      </div>
-      {/* Login Modal */}
+
       {isLoginModalOpen && (
         <LoginModal
           handleLoginModal={handleLoginModal}
           isLoginModalOpen={isLoginModalOpen}
           setIsLoginModalOpen={setIsLoginModalOpen}
+          // setNavContent={setNavContent}
         />
       )}
     </nav>

@@ -3,10 +3,12 @@ import style from "./style.module.css";
 import { useState } from "react";
 import ErrorMessage from "../ErrorMessage";
 import OtpModal from "./OtpModal";
+import NavBarState from "../index";
 interface LoginModalProps {
   isLoginModalOpen: boolean;
   setIsLoginModalOpen: (value: boolean) => void;
   handleLoginModal: () => void;
+  setNavContent: (value: typeof NavBarState) => void;
 }
 
 enum ModalState {
@@ -19,6 +21,7 @@ const LoginModal = ({
   isLoginModalOpen,
   setIsLoginModalOpen,
   handleLoginModal,
+  setNavContent,
 }: LoginModalProps) => {
   const [modalState, setModalState] = useState<ModalState>(ModalState.Email);
   const [email, setEmail] = useState("");
@@ -73,8 +76,6 @@ const LoginModal = ({
       setError("Network error, please try again.");
       setErrorMessage(true);
     }
-
-    setError("");
   };
 
   return (
@@ -108,6 +109,7 @@ const LoginModal = ({
             setErrorMessage={setErrorMessage}
             setError={setError}
             handleLoginModal={handleLoginModal}
+            setNavContent={setNavContent}
           />
         )}
       </div>

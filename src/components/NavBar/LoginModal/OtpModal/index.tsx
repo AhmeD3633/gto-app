@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import style from "../style.module.css";
 import { useRouter } from "next/navigation";
+import NavBarState from "../index";
 
 interface OtpModalProps {
   handleModalClose: () => void;
@@ -8,6 +9,8 @@ interface OtpModalProps {
   setError: (value: string) => void;
   setErrorMessage: (value: boolean) => void;
   handleLoginModal: () => void;
+  NavBarState: typeof NavBarState;
+  setNavContent: (value: typeof NavBarState) => void;
 }
 
 const OtpModal = ({
@@ -16,6 +19,8 @@ const OtpModal = ({
   setError,
   setErrorMessage,
   handleLoginModal,
+  NavBarState,
+  setNavContent,
 }: OtpModalProps) => {
   const otpInputsRef = useRef<(HTMLInputElement | null)[]>([]);
   const [otp, setOtp] = useState("");
@@ -45,6 +50,7 @@ const OtpModal = ({
         console.log("Success:", data);
         router.push("/profile");
         handleLoginModal();
+        // setNavContent(NavBarState.logout);
       }
     } catch (error) {
       setError("Network error, please try again.");
