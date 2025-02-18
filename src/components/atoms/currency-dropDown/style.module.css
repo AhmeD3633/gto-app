@@ -37,7 +37,6 @@
   background-color: #d4a742;
 }
 
-/* Dropdown menu items */
 .dropdownItem {
   padding: 10px;
   cursor: pointer;
@@ -48,12 +47,11 @@
 }
 
 @media screen and (max-width: 768px) {
- .dropdownButton{
+  .dropdownButton {
     font-size: 0.6rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 5px;
-
- }   
+  }
 }

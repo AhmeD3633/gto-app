@@ -7,50 +7,6 @@
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.first {
-  width: 100%;
-  padding: 0px;
-  background-color: #d4a742;
-  display: flex;
-  justify-content: end;
-  align-items: center;
-  height: 20%;
-  padding-right: 20px;
-}
-
-.accountOperations {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 20%;
-  list-style: none;
-  font-size: clamp(0.4rem, 0.8rem, 0.8rem);
-  font-weight: 400;
-  padding-left: 0px;
-}
-
-.accountOperations li {
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: 200ms ease-in-out;
-  color: #222222;
-}
-
-.accountOperations li:hover {
-  color: aliceblue;
-}
-
-.accountOperations li:hover img {
-  filter: invert(1);
-}
-
-.accountOperations li img {
-  margin-right: 5px;
-  transition: all 0.2s ease-in-out ;
-}
-
 .second {
   height: 80%;
   background-color: #222222;

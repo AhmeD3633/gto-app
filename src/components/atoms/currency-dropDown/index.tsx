@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import style from "./dropdown.module.css";
+import style from "./style.module.css";
 import arrowDown from "../../../../public/assets/Images/arrow-down.svg";
 import Image from "next/image";
 
@@ -9,7 +9,8 @@ const Dropdown = () => {
   const [selected, setSelected] = useState("GBP");
 
   const handleToggle = () => setIsOpen(!isOpen);
-  const handleSelect = (currency) => {
+
+  const handleSelect = (currency: string) => {
     setSelected(currency);
     setIsOpen(false);
   };

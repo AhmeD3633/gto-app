@@ -1,0 +1,33 @@
+.accountOperations {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 20%;
+  list-style: none;
+  font-size: clamp(0.4rem, 0.8rem, 0.8rem);
+  font-weight: 400;
+  padding-left: 0px;
+}
+
+@media screen and (max-width: 768px) {
+  .accountOperations {
+    width: 100%;
+    gap: 1rem;
+    justify-content: space-evenly;
+    font-size: 0.6rem;
+  }
+}
+@media screen and (min-width: 769px) {
+  .accountOperations {
+    width: 40%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .accountOperations {
+    justify-content: end;
+    gap: 1rem;
+    width: auto;
+    
+  }
+}

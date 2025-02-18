@@ -5,11 +5,11 @@ import style from "./style.module.css";
 import wallet from "../../../public/assets/Images/wallet-logo.7d8917e9.svg";
 import login from "../../../public/assets/Images/login-icon.svg";
 import join from "../../../public/assets/Images/join-now-icon.svg";
+import UserOperationBar from "@/components/organisms/user-operation-bar";
 import Image from "next/image";
 import emerald from "../../../public/assets/Images/emerlad.svg";
 import etisalat from "../../../public/assets/Images/etisalat-logo.png";
 import gto from "../../../public/assets/Images/gto-logo.png";
-import Dropdown from "./Dropdown/Dropdown";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import LoginModal from "./LoginModal";
@@ -63,25 +63,7 @@ const Nav = () => {
 
       {/* MAIN NAV */}
       {navContent === NavBarState.joinNow && (
-        <div className={style.first}>
-          <ul className={style.accountOperations}>
-            <li>
-              <Dropdown />
-            </li>
-            <li>
-              <Image src={wallet} alt="wallet" width={24} height={24} />
-              My Wallet
-            </li>
-            <li role="button" onClick={handleLoginModal}>
-              <Image src={login} alt="login" />
-              Login
-            </li>
-            <li>
-              <Image src={join} alt="join" />
-              Join Now
-            </li>
-          </ul>
-        </div>
+        <UserOperationBar setIsLoginModalOpen={setIsLoginModalOpen} />
       )}
 
       {navContent === NavBarState.logout && (
