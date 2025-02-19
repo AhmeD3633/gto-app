@@ -13,6 +13,10 @@ import gto from "../../../public/assets/Images/gto-logo.png";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import LoginModal from "./LoginModal";
+import GtoLogo from "../atoms/GTO-logo";
+import EmeraldLogo from "../atoms/Emerald-logo";
+import NavBarLinks from "../molecules/NavBarLinks";
+import HeaderNavigationOrganism from "../organisms/Header Navigation Organism";
 
 enum NavBarState {
   joinNow = "joinNow",
@@ -87,28 +91,11 @@ const Nav = () => {
       )}
 
       {/* Secondary Navigation */}
-      <div className={style.second}>
+      {/* <div className={style.second}>
         <div className={style.leftSide}>
-          <div className={style.logoContainer}>
-            <Link href="/">
-              <Image
-                src={gto}
-                alt="gto"
-                layout="responsive"
-                className={style.logo}
-              />
-            </Link>
-          </div>
+          <GtoLogo />
 
-          <div>
-            {links.map((link, i) => (
-              <ul key={i} className={style.links}>
-                <li>
-                  <Link href={link.href}>{link.title}</Link>
-                </li>
-              </ul>
-            ))}
-          </div>
+          <NavBarLinks />
         </div>
 
         <button
@@ -120,11 +107,9 @@ const Nav = () => {
           <span></span>
         </button>
 
-        <div className={style.rightSide}>
-          <Image src={emerald} alt="emerald" />
-          <Image src={etisalat} alt="etisalat" />
-        </div>
-      </div>
+        <EmeraldLogo />
+      </div> */}
+      <HeaderNavigationOrganism />
 
       {isLoginModalOpen && (
         <LoginModal

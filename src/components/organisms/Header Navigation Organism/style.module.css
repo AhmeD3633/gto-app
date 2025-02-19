@@ -1,0 +1,15 @@
+.container {
+  height: 80%;
+  background-color: #222222;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 20px;
+  border-bottom: 2px solid #d4a742;
+}
+
+.leftSide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}

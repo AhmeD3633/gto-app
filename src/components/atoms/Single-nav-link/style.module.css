@@ -1,0 +1,27 @@
+.singleNavLink {
+  text-decoration: none !important;
+  color: #d4a742;
+  position: relative;
+  transition: color 0.3s ease-in-out;
+  font-size: 0.8rem;
+}
+
+.singleNavLink::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 0px;
+  background-color: aliceblue;
+  bottom: -10px;
+  left: 0;
+  transition: height 0.3s ease-in-out;
+}
+
+.singleNavLink:hover::after {
+  height: 2px;
+}
+
+.singleNavLink:hover {
+  color: aliceblue;
+}

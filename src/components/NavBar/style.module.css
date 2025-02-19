@@ -16,16 +16,6 @@
   border-bottom: 2px solid #d4a742;
 }
 
-.logoContainer {
-  min-width: 100px;
-  min-height: 50px;
-}
-
-.logo {
-  width: 100%;
-  height: auto;
-}
-
 .rightSide {
   display: flex;
   flex-direction: column;

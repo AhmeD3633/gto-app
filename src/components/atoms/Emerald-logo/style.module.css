@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0px;
+}
+
+.container > * {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .container {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    display: flex;
+  }
+}
