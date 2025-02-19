@@ -8,7 +8,13 @@ const GtoLogo = () => {
   return (
     <div>
       <Link href="/">
-        <Image src={gto} alt="gto" layout="responsive" className={style.logo} />
+        <Image
+          src={gto}
+          alt="gto"
+          layout="responsive"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className={style.logo}
+        />
       </Link>
     </div>
   );

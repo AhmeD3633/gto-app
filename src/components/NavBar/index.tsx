@@ -70,26 +70,6 @@ const Nav = () => {
         <UserOperationBar setIsLoginModalOpen={setIsLoginModalOpen} />
       )}
 
-      {navContent === NavBarState.logout && (
-        <div className={style.first}>
-          <ul className={style.accountOperations}>
-            <li>ahmedelsherbini</li>
-            <li>
-              <Image src={wallet} alt="wallet" width={24} height={24} />
-              My Wallet
-            </li>
-            <li role="button" onClick={handleLoginModal}>
-              <Image src={join} alt="join" />
-              Profile
-            </li>
-            <li>
-              <Image src={login} alt="login" />
-              Logout
-            </li>
-          </ul>
-        </div>
-      )}
-
       {/* Secondary Navigation */}
       {/* <div className={style.second}>
         <div className={style.leftSide}>
@@ -98,14 +78,7 @@ const Nav = () => {
           <NavBarLinks />
         </div>
 
-        <button
-          className={`${style.burger} ${isOpen ? style.open : ""}`}
-          onClick={toggleMenu}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+
 
         <EmeraldLogo />
       </div> */}
