@@ -25,3 +25,25 @@
 .singleNavLink:hover {
   color: aliceblue;
 }
+
+.mobileView {
+  padding: 10px;
+  width: 100%;
+}
+
+.mobileView a {
+  text-decoration: none;
+  color: #d4a742;
+  width: 100%;
+  display: block;
+}
+
+/* Active Link Style */
+.activeLink {
+  background-color: #d4a742;
+  color: #222222 !important;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-weight: 600;
+  box-shadow: 1px 1px 3px rgba(212, 167, 66, 0.2);
+}

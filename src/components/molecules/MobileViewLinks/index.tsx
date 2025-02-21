@@ -11,7 +11,12 @@ const MobileViewLinks = ({ links = [], isOpen }: Props) => {
     <div className={`${style.container} ${isOpen ? style.open : ""}`}>
       <ul>
         {links.map((link, i) => (
-          <SingleNavLink key={i} title={link.title} href={link.href} />
+          <SingleNavLink
+            key={i}
+            title={link.title}
+            href={link.href}
+            mobileView={true}
+          />
         ))}
       </ul>
     </div>
