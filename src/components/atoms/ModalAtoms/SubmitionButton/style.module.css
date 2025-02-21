@@ -1,0 +1,10 @@
+.submitionButton {
+  width: 100%;
+  background-color: #d4a742;
+  padding: 18px 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+}

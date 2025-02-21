@@ -4,6 +4,10 @@ import { useState } from "react";
 import ErrorMessage from "../ErrorMessage";
 import OtpModal from "./OtpModal";
 import NavBarState from "../index";
+import { CloseButton } from "@/components/atoms/ModalAtoms/CloseButton";
+import { ModalTitle } from "@/components/atoms/ModalAtoms/ModalTitle";
+import { SingleInputField } from "@/components/atoms/ModalAtoms/SingleInputFiled";
+import { SubmitionButton } from "@/components/atoms/ModalAtoms/SubmitionButton";
 interface LoginModalProps {
   isLoginModalOpen: boolean;
   setIsLoginModalOpen: (value: boolean) => void;
@@ -84,20 +88,17 @@ const LoginModal = ({
         {modalState === ModalState.Email && (
           <div className={style.loginModalContent}>
             <div className={style.buttonContainer}>
-              <button className={style.close} onClick={handleModalClose}>
-                &times;
-              </button>
+              <CloseButton handleModalClose={handleModalClose} />
             </div>
-            <h2>Log in</h2>
+            <ModalTitle title="Log in" />
             <form className={style.loginForm} onSubmit={handleSubmit}>
-              <input
-                type="text"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+              <SingleInputField
+                label="Email"
+                email={email}
+                setEmail={setEmail}
               />
               {error && <p className={style.error}>{error}</p>}
-              <button className={style.Button}>Login</button>
+              <SubmitionButton title="Log in" />
             </form>
           </div>
         )}
