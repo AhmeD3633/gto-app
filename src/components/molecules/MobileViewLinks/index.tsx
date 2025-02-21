@@ -5,8 +5,9 @@ import SingleNavLink from "@/components/atoms/Single-nav-link";
 interface Props {
   links: { title: string; href: string }[];
   isOpen: boolean;
+  setIsOpen: (value: boolean) => void;
 }
-const MobileViewLinks = ({ links = [], isOpen }: Props) => {
+const MobileViewLinks = ({ links = [], isOpen, setIsOpen }: Props) => {
   return (
     <div className={`${style.container} ${isOpen ? style.open : ""}`}>
       <ul>

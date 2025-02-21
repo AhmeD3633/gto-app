@@ -29,6 +29,12 @@ const HeaderNavigationOrganism = () => {
 
   return (
     <div className={style.container}>
+      {isOpen && (
+        <div
+          className={`${style.overlay} ${isOpen ? style.show : ""}`}
+          onClick={() => setIsOpen(false)}
+        ></div>
+      )}
       <div className={style.leftSide}>
         <GtoLogo />
         <NavBarLinks links={links} />
@@ -36,7 +42,7 @@ const HeaderNavigationOrganism = () => {
         <BurgerIcon isOpen={isOpen} toggleMenu={toggleMenu} />
       </div>
       <EmeraldLogo />
-      <MobileViewLinks links={links} isOpen={isOpen} />
+      <MobileViewLinks links={links} isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>
   );
 };
