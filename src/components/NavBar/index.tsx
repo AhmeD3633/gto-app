@@ -17,6 +17,7 @@ import GtoLogo from "../atoms/GTO-logo";
 import EmeraldLogo from "../atoms/Emerald-logo";
 import NavBarLinks from "../molecules/NavBarLinks";
 import HeaderNavigationOrganism from "../organisms/Header Navigation Organism";
+import { Modal } from "../templates/Modal";
 
 enum NavBarState {
   joinNow = "joinNow",
@@ -38,7 +39,7 @@ const Nav = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("");
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(true);
 
   const pathname = usePathname();
 
@@ -85,12 +86,13 @@ const Nav = () => {
       <HeaderNavigationOrganism />
 
       {isLoginModalOpen && (
-        <LoginModal
-          handleLoginModal={handleLoginModal}
-          isLoginModalOpen={isLoginModalOpen}
-          setIsLoginModalOpen={setIsLoginModalOpen}
-          // setNavContent={setNavContent}
-        />
+        // <LoginModal
+        //   handleLoginModal={handleLoginModal}
+        //   isLoginModalOpen={isLoginModalOpen}
+        //   setIsLoginModalOpen={setIsLoginModalOpen}
+        //   // setNavContent={setNavContent}
+        // />
+        <Modal />
       )}
     </nav>
   );

@@ -2,7 +2,7 @@ import React from "react";
 import style from "./style.module.css";
 
 interface CloseButtonProps {
-  handleModalClose: () => void;
+  handleModalClose?: () => void;
 }
 export const CloseButton = ({ handleModalClose }: CloseButtonProps) => {
   return (
