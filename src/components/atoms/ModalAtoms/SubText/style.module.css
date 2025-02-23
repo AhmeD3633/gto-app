@@ -1,5 +1,5 @@
 .subText {
-  color: snow;
+  color: snow !important;
   font-size: 0.6rem;
   letter-spacing: 0.1rem;
 }
