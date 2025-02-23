@@ -5,15 +5,25 @@ import { EmailForm } from "@/components/molecules/ModalMolecules/EmailForm";
 
 interface LoginModalOrganismProps {
   toggleLoginModal: () => void;
+  handleSubmit: (e: React.FormEvent) => void;
+  email: string;
+  setEmail: (value: string) => void;
 }
 
 export const LoginModalOrganism = ({
   toggleLoginModal,
+  handleSubmit,
+  email,
+  setEmail,
 }: LoginModalOrganismProps) => {
   return (
     <div className={style.container}>
       <ModalHeader toggleLoginModal={toggleLoginModal} />
-      <EmailForm />
+      <EmailForm
+        handleSubmit={handleSubmit}
+        email={email}
+        setEmail={setEmail}
+      />
     </div>
   );
 };

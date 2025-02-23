@@ -88,7 +88,7 @@ const LoginModal = ({
         {modalState === ModalState.Email && (
           <div className={style.loginModalContent}>
             <div className={style.buttonContainer}>
-              <CloseButton handleModalClose={handleModalClose} />
+              {/* <CloseButton handleModalClose={handleModalClose} /> */}
             </div>
             <ModalTitle title="Log in" />
             <form className={style.loginForm} onSubmit={handleSubmit}>
