@@ -2,11 +2,11 @@ import React from "react";
 import style from "./style.module.css";
 
 interface CloseButtonProps {
-  handleModalClose?: () => void;
+  toggleLoginModal: () => void;
 }
-export const CloseButton = ({ handleModalClose }: CloseButtonProps) => {
+export const CloseButton = ({ toggleLoginModal }: CloseButtonProps) => {
   return (
-    <button className={style.close} onClick={handleModalClose}>
+    <button className={style.close} onClick={toggleLoginModal}>
       &times;
     </button>
   );

@@ -2,8 +2,7 @@
 import Footer from "@/components/Footer";
 import NavBar from "../components/NavBar/index";
 import "../styles/global.css";
-import UserOperationBar from "@/components/organisms/user-operation-bar";
-import HeaderNavigationOrganism from "@/components/organisms/Header Navigation Organism";
+import { NavBarTemplate } from "@/components/templates/NavBarTemplate";
 
 export default function RootLayout({
   children,
@@ -13,9 +12,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {/* <UserOperationBar />
-        <HeaderNavigationOrganism /> */}
-        <NavBar />
+        <NavBarTemplate />
         {children}
         <Footer />
       </body>

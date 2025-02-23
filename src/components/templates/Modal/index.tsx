@@ -3,11 +3,15 @@ import style from "./style.module.css";
 import { LoginModalOrganism } from "@/components/organisms/LoginModalOrganism";
 import { OtpModalOrganism } from "@/components/organisms/OtpModalOrganism";
 
-export const Modal = () => {
+interface ModalProps {
+  toggleLoginModal: () => void;
+}
+
+export const Modal = ({ toggleLoginModal }: ModalProps) => {
   return (
     <div className={style.modalOverLay}>
       <div className={style.modal}>
-        <LoginModalOrganism />
+        <LoginModalOrganism toggleLoginModal={toggleLoginModal} />
         {/* <OtpModalOrganism /> */}
       </div>
     </div>
