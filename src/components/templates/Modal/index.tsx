@@ -30,10 +30,10 @@ export const Modal = ({ toggleLoginModal }: ModalProps) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setModalState(ModalState.Otp);
+    // setModalState(ModalState.Otp);
 
     if (!email.trim()) {
-      setError("Email is required");
+      setError("Invalid Email");
       setErrorMessage(true);
       return;
     }
@@ -72,6 +72,7 @@ export const Modal = ({ toggleLoginModal }: ModalProps) => {
             handleSubmit={handleSubmit}
             email={email}
             setEmail={setEmail}
+            error={error}
           />
         )}
 

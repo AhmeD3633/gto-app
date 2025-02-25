@@ -8,6 +8,7 @@ interface LoginModalOrganismProps {
   handleSubmit: (e: React.FormEvent) => void;
   email: string;
   setEmail: (value: string) => void;
+  error: string;
 }
 
 export const LoginModalOrganism = ({
@@ -15,6 +16,7 @@ export const LoginModalOrganism = ({
   handleSubmit,
   email,
   setEmail,
+  error,
 }: LoginModalOrganismProps) => {
   return (
     <div className={style.container}>
@@ -23,6 +25,7 @@ export const LoginModalOrganism = ({
         handleSubmit={handleSubmit}
         email={email}
         setEmail={setEmail}
+        error={error}
       />
     </div>
   );
