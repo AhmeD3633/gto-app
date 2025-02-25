@@ -93,7 +93,6 @@ export const Modal = ({ toggleLoginModal }: ModalProps) => {
 
       if (!response.ok) {
         setError(data.message || "Failed to login");
-        setErrorMessage(true);
         setModalState(ModalState.Otp);
       } else {
         router.push("/profile");
