@@ -1,0 +1,6 @@
+.errorMessageBody {
+  color: black;
+  display: flex;
+  justify-content: start;
+  padding-left: 2rem;
+}

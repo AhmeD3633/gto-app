@@ -11,7 +11,7 @@ export const ModalHeader = ({ toggleLoginModal }: ModalHeaderProps) => {
   return (
     <div className={style.modalHeader}>
       <div className={style.closeButton}>
-        <CloseButton toggleLoginModal={toggleLoginModal} />
+        <CloseButton toggleLoginModal={toggleLoginModal} bgColor="#d4a742" />
       </div>
       <ModalTitle title="Log in" />
     </div>

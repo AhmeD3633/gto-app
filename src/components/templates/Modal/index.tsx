@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import style from "./style.module.css";
 import { LoginModalOrganism } from "@/components/organisms/LoginModalOrganism";
 import { OtpModalOrganism } from "@/components/organisms/OtpModalOrganism";
+import { ErrorMessageOrganism } from "@/components/organisms/ErrorMessageOrganism";
 
 interface ModalProps {
   toggleLoginModal: () => void;
@@ -30,11 +31,9 @@ export const Modal = ({ toggleLoginModal }: ModalProps) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // setModalState(ModalState.Otp);
 
     if (!email.trim()) {
       setError("Invalid Email");
-      setErrorMessage(true);
       return;
     }
 
@@ -53,10 +52,9 @@ export const Modal = ({ toggleLoginModal }: ModalProps) => {
       const data = await response.json();
 
       if (!response.ok) {
-        setError(data.message || "Failed to login");
         setErrorMessage(true);
       } else {
-        console.log("Success:", data);
+        setModalState(ModalState.Otp);
       }
     } catch (error) {
       setError("Network error, please try again.");
@@ -80,6 +78,7 @@ export const Modal = ({ toggleLoginModal }: ModalProps) => {
           <OtpModalOrganism toggleLoginModal={toggleLoginModal} />
         )}
       </div>
+      {errorMessage && <ErrorMessageOrganism />}
     </div>
   );
 };

@@ -1,0 +1,13 @@
+.errorMessageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.errorMessageHeader div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: black;
+}
