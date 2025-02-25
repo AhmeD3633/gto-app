@@ -66,13 +66,18 @@ export const Modal = ({ toggleLoginModal }: ModalProps) => {
   return (
     <div className={style.modalOverLay}>
       <div className={style.modal}>
-        <LoginModalOrganism
-          toggleLoginModal={toggleLoginModal}
-          handleSubmit={handleSubmit}
-          email={email}
-          setEmail={setEmail}
-        />
-        {/* <OtpModalOrganism /> */}
+        {modalState === ModalState.Email && (
+          <LoginModalOrganism
+            toggleLoginModal={toggleLoginModal}
+            handleSubmit={handleSubmit}
+            email={email}
+            setEmail={setEmail}
+          />
+        )}
+
+        {modalState === ModalState.Otp && (
+          <OtpModalOrganism toggleLoginModal={toggleLoginModal} />
+        )}
       </div>
     </div>
   );
