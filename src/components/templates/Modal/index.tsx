@@ -1,11 +1,15 @@
+"use client";
+
 import React, { useEffect, useRef, useState } from "react";
 import style from "./style.module.css";
 import { LoginModalOrganism } from "@/components/organisms/LoginModalOrganism";
 import { OtpModalOrganism } from "@/components/organisms/OtpModalOrganism";
 import { ErrorMessageOrganism } from "@/components/organisms/ErrorMessageOrganism";
 import { LoadingComponent } from "@/components/organisms/LoadingOrganism";
+import Cookies from "js-cookie";
+import { requestOtp } from "../../../../lib";
+import { loginWithOtp } from "../../../../lib";
 import { useRouter } from "next/navigation";
-
 interface ModalProps {
   toggleLoginModal: () => void;
 }
@@ -24,6 +28,7 @@ export const Modal = ({ toggleLoginModal }: ModalProps) => {
 
   const otpInputsRef = useRef<Array<HTMLInputElement | null>>([]);
   const [otp, setOtp] = useState("");
+
   const router = useRouter();
 
   useEffect(() => {
@@ -46,24 +51,13 @@ export const Modal = ({ toggleLoginModal }: ModalProps) => {
     setModalState(ModalState.Loading);
 
     try {
-      const response = await fetch(
-        "https://backend-gto.bit68.com/en/api/users/customer_otp/",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ phone_or_email: email }),
-        }
-      );
+      const data = await requestOtp(email);
 
-      const data = await response.json();
-
-      if (!response.ok) {
+      if (data.message) {
+        setModalState(ModalState.Otp);
+      } else {
         setErrorMessage(true);
         setModalState(ModalState.Email);
-      } else {
-        setModalState(ModalState.Otp);
       }
     } catch (error) {
       setError("Network error, please try again.");
@@ -78,27 +72,27 @@ export const Modal = ({ toggleLoginModal }: ModalProps) => {
     setModalState(ModalState.Loading);
 
     try {
-      const response = await fetch(
-        "https://backend-gto.bit68.com/en/api/users/customer_login/",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ phone_or_email: email, otp: otp }),
+      const data = await loginWithOtp(email, otp);
+      console.log(data);
+
+      if (data.access_token) {
+        Cookies.set("session", data.access_token, { expires: 7 });
+
+        const token = Cookies.get("session");
+        console.log(token);
+        if (token) {
+          router.push("/profile");
+          toggleLoginModal();
+        } else {
+          setError("Unauthorized access");
+          setModalState(ModalState.Otp);
         }
-      );
-
-      const data = await response.json();
-
-      if (!response.ok) {
+      } else {
         setError(data.message || "Failed to login");
         setModalState(ModalState.Otp);
-      } else {
-        router.push("/profile");
-        toggleLoginModal();
       }
     } catch (error) {
+      console.log(error);
       setError("Network error, please try again.");
       setErrorMessage(true);
       setModalState(ModalState.Otp);
