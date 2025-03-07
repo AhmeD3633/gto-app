@@ -1,0 +1,10 @@
+.userOperationName {
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  font-weight: 400;
+}
+
+.userOperationName:hover {
+  cursor: pointer;
+  color: aliceblue;
+}

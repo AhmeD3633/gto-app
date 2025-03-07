@@ -66,3 +66,29 @@ a:hover {
     display: none;
   }
 }
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 0.6rem;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(280 50% 3%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4a742;
+  border: 3px solid hsl(280 50% 3%);
+  border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d4a742;
+}
+
+/* Selection color */
+::selection {
+  background: #d4a742;
+  color: hsl(280 50% 3%);
+}

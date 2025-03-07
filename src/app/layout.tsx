@@ -1,9 +1,13 @@
 "use client";
 import Footer from "@/components/Footer";
-import NavBar from "../components/NavBar/index";
 import "../styles/global.css";
 import { NavBarTemplate } from "@/components/templates/NavBarTemplate";
+import { Roboto } from "next/font/google";
 
+const roboto = Roboto({
+  weight: "400",
+  subsets: ["latin"],
+});
 export default function RootLayout({
   children,
 }: {
@@ -11,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className={roboto.className}>
         <NavBarTemplate />
         {children}
         <Footer />

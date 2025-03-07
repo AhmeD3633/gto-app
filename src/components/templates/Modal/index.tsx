@@ -12,6 +12,7 @@ import { loginWithOtp } from "../../../../lib";
 import { useRouter } from "next/navigation";
 interface ModalProps {
   toggleLoginModal: () => void;
+  setUserOperationBarState: (value: any) => void;
 }
 
 enum ModalState {
@@ -20,7 +21,10 @@ enum ModalState {
   Loading = "Loading",
 }
 
-export const Modal = ({ toggleLoginModal }: ModalProps) => {
+export const Modal = ({
+  toggleLoginModal,
+  setUserOperationBarState,
+}: ModalProps) => {
   const [modalState, setModalState] = useState<ModalState>(ModalState.Email);
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
@@ -83,6 +87,7 @@ export const Modal = ({ toggleLoginModal }: ModalProps) => {
         if (token) {
           router.push("/profile");
           toggleLoginModal();
+          setUserOperationBarState("Logout");
         } else {
           setError("Unauthorized access");
           setModalState(ModalState.Otp);
